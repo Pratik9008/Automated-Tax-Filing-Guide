@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Income | Automated Tax Filing Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Income input</p>
+        <h1>Automated Tax Filing Guide</h1>
+      </div>
+      <div class="app-actions">
+        <a class="ghost-button" href="dashboard.html">Dashboard</a>
+        <a class="ghost-button" href="expense.html">Deductions</a>
+        <a class="ghost-button" href="report.html">Report</a>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">T</button>
+        <button class="ghost-button" type="button" id="logoutButton">Logout</button>
+      </div>
+    </header>
+
+    <section class="app-content">
+      <form class="panel" id="incomeForm" novalidate>
+        <h2 id="formTitle">Add income</h2>
+        <input type="hidden" id="incomeId" name="incomeId">
+
+        <label for="financialYear">Financial year</label>
+        <select id="financialYear" name="financialYear" required>
+          <option>FY 2024-25</option>
+          <option>FY 2023-24</option>
+        </select>
+
+        <label for="type">Income type</label>
+        <select id="type" name="type" required>
+          <option value="">Select income type</option>
+          <option>Salary</option>
+          <option>Freelance / Consulting</option>
+          <option>Business income</option>
+          <option>Rental income</option>
+          <option>Other sources</option>
+        </select>
+        <small class="field-error" data-error-for="type"></small>
+
+        <div class="salary-fields" id="salaryFields">
+          <label for="employerName">Employer name</label>
+          <input id="employerName" name="employerName" type="text" placeholder="Company name">
+
+          <label for="ctc">CTC</label>
+          <input id="ctc" name="ctc" type="number" min="0" step="1" placeholder="₹">
+
+          <label for="inHand">In-hand salary</label>
+          <input id="inHand" name="inHand" type="number" min="0" step="1" placeholder="₹">
+        </div>
+
+        <label for="amount">Amount</label>
+        <input id="amount" name="amount" type="number" min="0" step="1" placeholder="₹ 800000" required>
+        <small class="field-error" data-error-for="amount"></small>
+
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Dividends, client invoices, rent received..."></textarea>
+
+        <button class="primary-button" type="submit">
+          <span class="button-text">Save income</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+        <button class="ghost-button" type="button" id="resetButton">Clear</button>
+      </form>
+
+      <section class="panel">
+        <div class="list-toolbar">
+          <div>
+            <p class="eyebrow">Your records</p>
+            <h2>Income entries</h2>
+          </div>
+          <select id="filterYear" aria-label="Filter financial year">
+            <option>FY 2024-25</option>
+            <option>FY 2023-24</option>
+          </select>
+        </div>
+        <div id="incomeTotal" class="amount">₹0</div>
+        <div id="incomeList" class="income-list"></div>
+      </section>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/income.js"></script>
+</body>
+</html>

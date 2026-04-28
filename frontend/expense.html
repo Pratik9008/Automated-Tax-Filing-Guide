@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deductions | Automated Tax Filing Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div><p class="eyebrow">Automated Tax Filing Guide</p><h1>Deductions</h1></div>
+      <div class="app-actions">
+        <a class="ghost-button" href="dashboard.html">Dashboard</a>
+        <a class="ghost-button" href="income.html">Income</a>
+        <a class="ghost-button" href="report.html">Report</a>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">T</button>
+        <button class="ghost-button" type="button" id="logoutButton">Logout</button>
+      </div>
+    </header>
+
+    <section class="app-content">
+      <form class="panel" id="expenseForm" novalidate>
+        <h2 id="formTitle">Add deduction</h2>
+        <input type="hidden" id="expenseId" name="expenseId">
+        <label for="financialYear">Financial year</label>
+        <select id="financialYear" name="financialYear"><option>FY 2024-25</option><option>FY 2023-24</option></select>
+        <label for="section">Section</label>
+        <select id="section" name="section" required>
+          <option value="">Select section</option>
+          <option value="80C">Section 80C</option>
+          <option value="80D">Section 80D</option>
+          <option value="80TTA">Section 80TTA</option>
+          <option value="HRA">HRA</option>
+          <option value="Standard Deduction">Standard Deduction</option>
+          <option value="24B">Home loan interest - Section 24B</option>
+        </select>
+        <small class="field-error" data-error-for="section"></small>
+        <label for="category">Category</label>
+        <input id="category" name="category" type="text" placeholder="ELSS, PPF, LIC, health premium...">
+        <label for="amount">Amount</label>
+        <input id="amount" name="amount" type="number" min="0" step="1" placeholder="₹ 50000" required>
+        <small class="field-error" data-error-for="amount"></small>
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Policy, investment or rent details"></textarea>
+        <button class="primary-button" type="submit"><span>Save deduction</span><span class="spinner"></span></button>
+        <button class="ghost-button" type="button" id="resetButton">Clear</button>
+      </form>
+
+      <section class="panel">
+        <div class="list-toolbar">
+          <div><p class="eyebrow">Your records</p><h2>Deduction entries</h2></div>
+          <select id="filterYear"><option>FY 2024-25</option><option>FY 2023-24</option></select>
+        </div>
+        <div id="expenseTotal" class="amount">₹0</div>
+        <div id="expenseList" class="income-list"></div>
+      </section>
+    </section>
+  </main>
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/expense.js"></script>
+</body>
+</html>

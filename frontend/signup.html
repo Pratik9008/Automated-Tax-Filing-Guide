@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup | Automated Tax Filing Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="auth-page">
+    <section class="brand-panel" aria-label="Automated Tax Filing Guide">
+      <div>
+        <p class="eyebrow">Automated Tax Filing Guide</p>
+        <h1>Start with identity, then build the full tax picture.</h1>
+        <p class="brand-copy">Your PAN-linked workspace will power income tracking, deduction planning, and regime recommendations.</p>
+      </div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="signup-title">
+      <div class="top-row">
+        <div>
+          <p class="eyebrow">Create account</p>
+          <h2 id="signup-title">Signup</h2>
+        </div>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">T</button>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <label for="name">Full name</label>
+        <input id="name" name="name" type="text" autocomplete="name" placeholder="Aarav Sharma" minlength="2" required>
+        <small class="field-error" data-error-for="name"></small>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <small class="field-error" data-error-for="email"></small>
+
+        <label for="PAN">PAN</label>
+        <input id="PAN" name="PAN" type="text" autocomplete="off" placeholder="ABCDE1234F" maxlength="10" required>
+        <small class="field-error" data-error-for="PAN"></small>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="new-password" placeholder="Minimum 8 characters" minlength="8" required>
+        <small class="field-error" data-error-for="password"></small>
+
+        <button class="primary-button" type="submit">
+          <span class="button-text">Create account</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <p class="auth-switch">Already have an account? <a href="index.html">Login</a></p>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Automated Tax Filing Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="auth-page">
+    <section class="brand-panel" aria-label="Automated Tax Filing Guide">
+      <div>
+        <p class="eyebrow">Automated Tax Filing Guide</p>
+        <h1>Plan tax smarter with a clear view of every rupee.</h1>
+        <p class="brand-copy">Securely manage income, deductions, regime comparisons, reports, and AI-backed tax guidance.</p>
+      </div>
+    </section>
+
+    <section class="auth-card" aria-labelledby="login-title">
+      <div class="top-row">
+        <div>
+          <p class="eyebrow">Welcome back</p>
+          <h2 id="login-title">Login</h2>
+        </div>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">T</button>
+      </div>
+
+      <form id="loginForm" novalidate>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <small class="field-error" data-error-for="email"></small>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" minlength="8" required>
+        <small class="field-error" data-error-for="password"></small>
+
+        <button class="primary-button" type="submit">
+          <span class="button-text">Login</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+      </form>
+
+      <p class="auth-switch">New here? <a href="signup.html">Create an account</a></p>
+    </section>
+  </main>
+
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

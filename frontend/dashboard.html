@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Automated Tax Filing Guide</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="vendor/chart.umd.js"></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Automated Tax Filing Guide</p>
+        <h1>Dashboard</h1>
+      </div>
+      <div class="app-actions">
+        <select id="dashboardYear" aria-label="Financial year">
+          <option>FY 2024-25</option>
+          <option>FY 2023-24</option>
+        </select>
+        <a class="ghost-button" href="income.html">Income</a>
+        <a class="ghost-button" href="expense.html">Deductions</a>
+        <a class="ghost-button" href="report.html">Report</a>
+        <a class="ghost-button" href="chat.html">💬 Support</a>
+        <button class="icon-button" type="button" data-theme-toggle aria-label="Toggle dark mode" title="Toggle dark mode">T</button>
+        <button class="ghost-button" type="button" id="logoutButton">Logout</button>
+      </div>
+    </header>
+
+    <section class="dashboard-hero">
+      <div>
+        <p class="eyebrow" id="dashboardUser">Welcome</p>
+        <h2>Automated Tax Filing Guide</h2>
+        <p id="dashboardMeta" class="brand-copy"></p>
+      </div>
+      <span class="recommendation" id="regimeBadge">Add income to compare regimes</span>
+    </section>
+
+    <section class="summary-grid">
+      <article class="panel stat-card"><p class="eyebrow">Total income</p><h3 id="totalIncome">₹0</h3></article>
+      <article class="panel stat-card"><p class="eyebrow">Deductions</p><h3 id="totalDeductions">₹0</h3></article>
+      <article class="panel stat-card"><p class="eyebrow">Taxable income</p><h3 id="taxableIncome">₹0</h3></article>
+      <article class="panel stat-card"><p class="eyebrow">Final tax</p><h3 id="finalTax">₹0</h3></article>
+    </section>
+
+    <section class="dashboard-layout">
+      <div class="chart-grid">
+        <article class="panel"><h2>Old vs New Regime</h2><canvas id="taxComparisonChart"></canvas></article>
+        <article class="panel"><h2>Income Breakdown</h2><canvas id="incomeBreakdownChart"></canvas></article>
+        <article class="panel wide"><h2>Deductions By Section</h2><canvas id="deductionChart"></canvas></article>
+      </div>
+
+      <aside class="panel ai-panel">
+        <p class="eyebrow">AI tax advisor</p>
+        <h2>Ask Claude</h2>
+        <div class="quick-questions">
+          <button class="ghost-button" type="button" data-question="How can I save more tax?">Save tax</button>
+          <button class="ghost-button" type="button" data-question="Should I choose old or new regime?">Regime</button>
+          <button class="ghost-button" type="button" data-question="What investments should I make?">Investments</button>
+        </div>
+        <form id="aiForm">
+          <textarea id="aiQuestion" placeholder="Ask a tax question"></textarea>
+          <button class="primary-button" type="submit"><span>Ask</span><span class="spinner"></span></button>
+        </form>
+        <pre id="aiResponse" class="ai-response">Your advice will appear here.</pre>
+      </aside>
+    </section>
+  </main>
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+  <script src="js/auth.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
