@@ -18,22 +18,6 @@ This project was built to simplify the complex world of Indian Income Tax. Inste
 
 ---
 
-## 📸 Visual Showcase
-
-### 1️⃣ Intelligent Dashboard
-*Visualize your income breakdown and see instant regime recommendations.*
-> <img src="screenshots/dashboard.png" width="800" alt="Dashboard Overview">
-
-### 2️⃣ AI Tax Consultant (24/7)
-*Ask complex questions like "How can I save more tax under 80D?" and get instant CA-verified answers.*
-> <img src="screenshots/chat.png" width="800" alt="AI Chat Interface">
-
-### 3️⃣ Detailed Regime Comparison
-*Side-by-side analysis of taxable income and final tax liability.*
-> <img src="screenshots/report.png" width="800" alt="Tax Report Summary">
-
----
-
 ## 🧠 System Architecture
 
 ```mermaid
